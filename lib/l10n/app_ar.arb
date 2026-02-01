@@ -1,0 +1,21 @@
+{
+    "appTitle": "الباقة الموريتانية",
+    "homeTab": "الرئيسية",
+    "radioTab": "الإذاعة",
+    "favoritesTab": "المفضلة",
+    "settingsTab": "الإعدادات",
+    "language": "اللغة",
+    "darkMode": "الوضع الداكن",
+    "watchNow": "شاهد الآن",
+    "live": "البث الحي",
+    "noChannels": "لا توجد قنوات متاحة",
+    "errorLoading": "خطأ في تحميل القنوات",
+    "search": "بحث",
+    "searchHint": "ابحث عن قناة...",
+    "noResults": "لا توجد نتائج",
+    "category": "الفئة",
+    "allCategories": "جميع الفئات",
+    "public": "عامة",
+    "private": "خاصة",
+    "radio": "إذاعة"
+}

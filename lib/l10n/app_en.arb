@@ -1,0 +1,21 @@
+{
+    "appTitle": "Mauritania TV",
+    "homeTab": "Home",
+    "radioTab": "Radio",
+    "favoritesTab": "Favorites",
+    "settingsTab": "Settings",
+    "language": "Language",
+    "darkMode": "Dark Mode",
+    "watchNow": "Watch Now",
+    "live": "LIVE",
+    "noChannels": "No channels available",
+    "errorLoading": "Error loading channels",
+    "search": "Search",
+    "searchHint": "Search for a channel...",
+    "noResults": "No results found",
+    "category": "Category",
+    "allCategories": "All Categories",
+    "public": "Public",
+    "private": "Private",
+    "radio": "Radio"
+}

@@ -1,0 +1,21 @@
+{
+    "appTitle": "TV Mauritanie",
+    "homeTab": "Accueil",
+    "radioTab": "Radio",
+    "favoritesTab": "Favoris",
+    "settingsTab": "Paramètres",
+    "language": "Langue",
+    "darkMode": "Mode Sombre",
+    "watchNow": "Regarder",
+    "live": "EN DIRECT",
+    "noChannels": "Aucune chaîne disponible",
+    "errorLoading": "Erreur de chargement des chaînes",
+    "search": "Rechercher",
+    "searchHint": "Rechercher une chaîne...",
+    "noResults": "Aucun résultat",
+    "category": "Catégorie",
+    "allCategories": "Toutes les catégories",
+    "public": "Publique",
+    "private": "Privée",
+    "radio": "Radio"
+}
