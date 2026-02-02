@@ -110,5 +110,13 @@
         "logoUrl": "assets/images/radio_jeunesse.png",
         "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
         "category": "Radio"
+    },
+     {
+        "id": "r3",
+        "name": "Radio Jeunesse",
+        "nameAr": "الإذاعة الثقافية",
+        "logoUrl": "assets/images/radio_cultirelle.png",
+        "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+        "category": "Radio"
     }
 ]
