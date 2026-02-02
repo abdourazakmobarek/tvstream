@@ -1,8 +1,11 @@
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:http/http.dart' as http;
+
 import '../data/datasources/channel_data_source.dart';
-import '../data/datasources/local_channel_data_source.dart';
+// import '../data/datasources/local_channel_data_source.dart';
+import '../data/datasources/remote_channel_data_source.dart';
 import '../data/repositories/channel_repository.dart';
 import '../logic/channels_cubit.dart';
 import '../logic/favorites_cubit.dart';
@@ -16,9 +19,15 @@ Future<void> setupDependencyInjection() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   getIt.registerSingleton<SharedPreferences>(sharedPreferences);
 
+  // External
+  getIt.registerLazySingleton(() => http.Client());
+
   // Data Sources
+  // getIt.registerLazySingleton<ChannelDataSource>(
+  //   () => LocalChannelDataSource(),
+  // );
   getIt.registerLazySingleton<ChannelDataSource>(
-    () => LocalChannelDataSource(),
+    () => RemoteChannelDataSource(client: getIt()),
   );
 
   // Repositories
