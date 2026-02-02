@@ -14,27 +14,17 @@ class RemoteChannelDataSource implements ChannelDataSource {
 
   Future<List<Channel>> _fetchAllChannels() async {
     try {
-      print('Fetching channels from: $_dataUrl');
       final response = await client.get(Uri.parse(_dataUrl));
-      
-      print('Response Status Code: ${response.statusCode}');
 
       if (response.statusCode == 200) {
         // فك تشفير البيانات باستخدام UTF-8 لدعم اللغة العربية
         final String decodedBody = utf8.decode(response.bodyBytes);
-        try {
-          final List<dynamic> jsonList = json.decode(decodedBody);
-          return jsonList.map((json) => Channel.fromJson(json)).toList();
-        } catch (e) {
-          print('JSON Parsing Error: $e');
-          throw Exception('Failed to decode JSON: $e');
-        }
+        final List<dynamic> jsonList = json.decode(decodedBody);
+        return jsonList.map((json) => Channel.fromJson(json)).toList();
       } else {
-        print('Server Error: ${response.body}');
         throw Exception('Failed to load channels: ${response.statusCode}');
       }
     } catch (e) {
-      print('General Error fetching channels: $e');
       throw Exception('Network Error: $e');
     }
   }
