@@ -32,19 +32,47 @@ class AppTheme {
         secondary: accentGold,
         onSurface: Colors.white,
         brightness: Brightness.dark,
-        surfaceContainerHighest: Colors.white.withValues(alpha: 0.1),
+        surfaceContainerHighest: Colors.white.withValues(alpha: 0.05),
       ),
-      textTheme: GoogleFonts.cairoTextTheme(ThemeData.dark().textTheme),
+      textTheme: GoogleFonts.cairoTextTheme(ThemeData.dark().textTheme).copyWith(
+        headlineSmall: GoogleFonts.cairo(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+        titleMedium: GoogleFonts.cairo(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          color: Colors.white.withValues(alpha: 0.9),
+        ),
+      ),
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(color: Colors.white),
         titleTextStyle: TextStyle(
           color: accentGold, // Gold title
           fontWeight: FontWeight.bold, 
-          fontSize: 24, // Larger title
-          shadows: [Shadow(color: Colors.black45, blurRadius: 2)],
+          fontSize: 22, 
+          letterSpacing: 1.2,
+          shadows: [
+            Shadow(color: Colors.black, blurRadius: 10, offset: Offset(0, 2)),
+          ],
         ),
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: Colors.transparent,
+        indicatorColor: primaryGreen.withValues(alpha: 0.2),
+        labelTextStyle: WidgetStateProperty.all(
+          const TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white70),
+        ),
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const IconThemeData(color: accentGold);
+          }
+          return const IconThemeData(color: Colors.white60);
+        }),
       ),
     );
   }

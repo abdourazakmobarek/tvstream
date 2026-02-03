@@ -1,8 +1,11 @@
+import 'dart:async';
+import 'dart:math';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import '../../../data/models/channel.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../core/app_theme.dart';
 
 class PlayerScreen extends StatefulWidget {
   final Channel channel;
@@ -18,11 +21,29 @@ class _PlayerScreenState extends State<PlayerScreen> {
   bool _isInitializing = true;
   String? _errorMessage;
   bool _hasError = false;
+  
+  // Real-time view count simulation
+  int _viewCount = 0;
+  Timer? _viewTimer;
 
   @override
   void initState() {
     super.initState();
     _initializePlayer();
+    
+    // Simulate initial views (between 1000 and 5000)
+    _viewCount = 1000 + Random().nextInt(4000);
+    
+    // Simulate real-time fluctuation
+    _viewTimer = Timer.periodic(Duration(seconds: 3 + Random().nextInt(5)), (timer) {
+      if (mounted) {
+        setState(() {
+          // Randomly add/remove 1-5 viewers
+          int change = Random().nextBool() ? 1 : -1;
+          _viewCount += change * (1 + Random().nextInt(5));
+        });
+      }
+    });
   }
 
   Future<void> _initializePlayer() async {
@@ -156,6 +177,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
 
   @override
   void dispose() {
+    _viewTimer?.cancel();
     _videoPlayerController?.removeListener(_videoPlayerListener);
     _videoPlayerController?.dispose();
     _chewieController?.dispose();
@@ -178,9 +200,49 @@ class _PlayerScreenState extends State<PlayerScreen> {
           channelName,
           style: const TextStyle(color: Colors.white),
         ),
+        actions: [
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.red.withValues(alpha: 0.8),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.remove_red_eye, color: Colors.white, size: 16),
+                const SizedBox(width: 6),
+                Text(
+                  _formatViewCount(_viewCount),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                const Text(
+                  'LIVE',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
       body: _buildBody(l10n),
     );
+  }
+
+  String _formatViewCount(int count) {
+    if (count >= 1000) {
+      return '${(count / 1000).toStringAsFixed(1)}k';
+    }
+    return count.toString();
   }
 
   Widget _buildBody(AppLocalizations? l10n) {
