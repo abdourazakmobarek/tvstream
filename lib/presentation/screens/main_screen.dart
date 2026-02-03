@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
             Positioned(
               left: 15,
               right: 15,
-              bottom: 20,
+              bottom: 40,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
                 child: BackdropFilter(
