@@ -92,7 +92,7 @@
         "name": "El oussra TV",
         "nameAr": "الأسرة",
         "logoUrl": "assets/images/Eoussra_tv.png",
-        "streamUrl": "https://embed.api.video/live/li3Hfuri0HA2ajnTvOlmN8Gr",
+        "streamUrl": "https://live.api.video/li3Hfuri0HA2ajnTvOlmN8Gr.m3u8",
         "category": "Public"
     },
     {
