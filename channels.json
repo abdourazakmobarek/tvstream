@@ -88,6 +88,14 @@
         "category": "Public"
     },
     {
+        "id": "12",
+        "name": "El oussra TV",
+        "nameAr": "الأسرة",
+        "logoUrl": "assets/images/Eoussra_tv.png",
+        "streamUrl": "https://dvrfl06.bozztv.com/astv-elousra/index.m3u8",
+        "category": "Public"
+    },
+    {
         "id": "r1",
         "name": "Radio Mauritanie",
         "nameAr": "إذاعة موريتانيا",
