@@ -43,7 +43,7 @@
         "id": "6",
         "name": "Dava",
         "nameAr": "دافا",
-        "logoUrl": "assets/images/dava_tv.png",
+        "logoUrl": "assets/images/Dava-tv.png",
         "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
         "category": "Private"
     },
@@ -115,7 +115,7 @@
         "id": "r3",
         "name": "Radio Jeunesse",
         "nameAr": "إذاعة الشباب",
-        "logoUrl": "assets/images/radio_jeunesse.png",
+        "logoUrl": "assets/images/radio-geunesse.png",
         "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
         "category": "Radio"
     },
@@ -123,7 +123,7 @@
         "id": "r3",
         "name": "Radio Jeunesse",
         "nameAr": "الإذاعة الثقافية",
-        "logoUrl": "assets/images/radio_cultirelle.png",
+        "logoUrl": "assets/images/radio-culturelle.png",
         "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
         "category": "Radio"
     }
