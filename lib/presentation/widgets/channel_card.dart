@@ -27,12 +27,9 @@ class ChannelCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(24),
               border: Border.all(color: Colors.grey.withValues(alpha: 0.05)),
             ),
-            child: Hero(
-              tag: channel.id,
-              child: channel.logoUrl.startsWith('http')
-                  ? CachedNetworkImage(imageUrl: channel.logoUrl, fit: BoxFit.contain)
-                  : Image.asset(channel.logoUrl, fit: BoxFit.contain),
-            ),
+            child: channel.logoUrl.startsWith('http')
+                ? CachedNetworkImage(imageUrl: channel.logoUrl, fit: BoxFit.contain)
+                : Image.asset(channel.logoUrl, fit: BoxFit.contain),
           ),
           const SizedBox(height: 8),
           Text(
