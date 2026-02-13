@@ -1,5 +1,5 @@
 {
-    "appTitle": "الباقة الموريتانية",
+    "appTitle": "البث الإذاعي والتلفزي الموريتاني",
     "homeTab": "الرئيسية",
     "radioTab": "الإذاعة",
     "favoritesTab": "المفضلة",
@@ -17,5 +17,23 @@
     "allCategories": "جميع الفئات",
     "public": "عامة",
     "private": "خاصة",
-    "radio": "إذاعة"
+    "radio": "إذاعة",
+    "tvBroadcasting": "البث التلفزيوني",
+    "radioBroadcasting": "البث الإذاعي",
+    "featuredChannels": "القنوات المميزة",
+    "viewAll": "عرض الكل",
+    "latestNews": "أحدث الأخبار",
+    "more": "المزيد",
+    "share": "مشاركة",
+    "nextPrograms": "البرامج التالية",
+    "relatedChannels": "قنوات ذات صلة",
+    "urgent": "عاجل",
+    "sport": "رياضة",
+    "searchPlaceholder": "ابحث عن قناة أو إذاعة...",
+    "liveLabel": "مباشر",
+    "mauritanianRadio": "الإذاعات الموريتانية",
+    "news": "أخبار",
+    "religious": "قرآن كريم",
+    "culture": "ثقافة",
+    "radioSlogan": "أنغام الصحراء والربوع"
 }

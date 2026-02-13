@@ -5,7 +5,7 @@ import 'package:tvstream/l10n/app_localizations.dart';
 import '../../../logic/channels_cubit.dart';
 import '../../../logic/favorites_cubit.dart';
 import '../../../core/app_theme.dart';
-import '../home/home_screen.dart'; // Reuse ChannelCard
+import '../../widgets/channel_card.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});

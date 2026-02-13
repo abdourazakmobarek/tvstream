@@ -1,5 +1,5 @@
 {
-    "appTitle": "Mauritania TV",
+    "appTitle": "Mauritanian Broadcasting",
     "homeTab": "Home",
     "radioTab": "Radio",
     "favoritesTab": "Favorites",
@@ -17,5 +17,23 @@
     "allCategories": "All Categories",
     "public": "Public",
     "private": "Private",
-    "radio": "Radio"
+    "radio": "Radio",
+    "tvBroadcasting": "TV Broadcasting",
+    "radioBroadcasting": "Radio Broadcasting",
+    "featuredChannels": "Featured Channels",
+    "viewAll": "View All",
+    "latestNews": "Latest News",
+    "more": "More",
+    "share": "Share",
+    "nextPrograms": "Next Programs",
+    "relatedChannels": "Related Channels",
+    "urgent": "Urgent",
+    "sport": "Sport",
+    "searchPlaceholder": "Search for a channel or radio...",
+    "liveLabel": "LIVE",
+    "mauritanianRadio": "Mauritanian Radios",
+    "news": "News",
+    "religious": "Religious",
+    "culture": "Culture",
+    "radioSlogan": "Desert Melodies"
 }

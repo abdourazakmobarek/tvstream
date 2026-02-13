@@ -1,5 +1,5 @@
 {
-    "appTitle": "TV Mauritanie",
+    "appTitle": "Télédiffusion de Mauritanie",
     "homeTab": "Accueil",
     "radioTab": "Radio",
     "favoritesTab": "Favoris",
@@ -17,5 +17,23 @@
     "allCategories": "Toutes les catégories",
     "public": "Publique",
     "private": "Privée",
-    "radio": "Radio"
+    "radio": "Radio",
+    "tvBroadcasting": "Diffusion TV",
+    "radioBroadcasting": "Diffusion Radio",
+    "featuredChannels": "Chaînes en vedette",
+    "viewAll": "Voir tout",
+    "latestNews": "Dernières nouvelles",
+    "more": "Plus",
+    "share": "Partager",
+    "nextPrograms": "Programmes suivants",
+    "relatedChannels": "Chaînes similaires",
+    "urgent": "Urgent",
+    "sport": "Sport",
+    "searchPlaceholder": "Rechercher une chaîne ou une radio...",
+    "liveLabel": "EN DIRECT",
+    "mauritanianRadio": "Radios Mauritaniennes",
+    "news": "Infos",
+    "religious": "Religieux",
+    "culture": "Culture",
+    "radioSlogan": "Mélodies du désert"
 }

@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appTitle => 'الباقة الموريتانية';
+  String get appTitle => 'البث الإذاعي والتلفزي الموريتاني';
 
   @override
   String get homeTab => 'الرئيسية';
@@ -64,4 +64,58 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get radio => 'إذاعة';
+
+  @override
+  String get tvBroadcasting => 'البث التلفزيوني';
+
+  @override
+  String get radioBroadcasting => 'البث الإذاعي';
+
+  @override
+  String get featuredChannels => 'القنوات المميزة';
+
+  @override
+  String get viewAll => 'عرض الكل';
+
+  @override
+  String get latestNews => 'أحدث الأخبار';
+
+  @override
+  String get more => 'المزيد';
+
+  @override
+  String get share => 'مشاركة';
+
+  @override
+  String get nextPrograms => 'البرامج التالية';
+
+  @override
+  String get relatedChannels => 'قنوات ذات صلة';
+
+  @override
+  String get urgent => 'عاجل';
+
+  @override
+  String get sport => 'رياضة';
+
+  @override
+  String get searchPlaceholder => 'ابحث عن قناة أو إذاعة...';
+
+  @override
+  String get liveLabel => 'مباشر';
+
+  @override
+  String get mauritanianRadio => 'الإذاعات الموريتانية';
+
+  @override
+  String get news => 'أخبار';
+
+  @override
+  String get religious => 'قرآن كريم';
+
+  @override
+  String get culture => 'ثقافة';
+
+  @override
+  String get radioSlogan => 'أنغام الصحراء والربوع';
 }

@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             // Theme
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: ThemeMode.dark, // Default to Dark/Glass-like
+            themeMode: ThemeMode.light, // New Light Theme
             
             // Localization
             locale: state.locale,

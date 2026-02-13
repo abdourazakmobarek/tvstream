@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>قائمة المحطات الإذاعية</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "tdm-green": "#1f9d55",
+                        "background-main": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "accent-border": "#f1f3f5",
+                    },
+                    fontFamily: {
+                        "sans": ["Tajawal", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-main text-slate-800 antialiased;
+                font-family: 'Tajawal', sans-serif;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-screen overflow-hidden flex flex-col">
+<div class="h-11 w-full flex items-center justify-between px-8 shrink-0 bg-white">
+<span class="text-[15px] font-bold">9:41</span>
+<div class="flex items-center space-x-reverse space-x-1.5">
+<span class="material-symbols-outlined text-[18px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+<span class="material-symbols-outlined text-[20px]">battery_full</span>
+</div>
+</div>
+<header class="px-6 py-4 bg-white border-b border-accent-border">
+<div class="flex items-center justify-between mb-5">
+<h1 class="text-2xl font-extrabold text-slate-900">الإذاعات الموريتانية</h1>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+<button class="px-5 py-2 rounded-full bg-tdm-green text-white text-sm font-bold shadow-sm shadow-tdm-green/20 whitespace-nowrap">الكل</button>
+<button class="px-5 py-2 rounded-full bg-slate-100 text-slate-600 text-sm font-medium whitespace-nowrap">أخبار</button>
+<button class="px-5 py-2 rounded-full bg-slate-100 text-slate-600 text-sm font-medium whitespace-nowrap">قرآن كريم</button>
+<button class="px-5 py-2 rounded-full bg-slate-100 text-slate-600 text-sm font-medium whitespace-nowrap">ثقافة</button>
+<button class="px-5 py-2 rounded-full bg-slate-100 text-slate-600 text-sm font-medium whitespace-nowrap">منوعات</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto px-4 py-4 space-y-3 pb-32">
+<div class="bg-white p-4 rounded-2xl border-2 border-tdm-green/10 flex items-center gap-4 shadow-sm">
+<div class="relative w-20 h-20 shrink-0">
+<img alt="Radio Logo" class="w-full h-full object-cover rounded-full border-2 border-white ring-4 ring-tdm-green/5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-wZL_d_Y7Mt5j3F7Lj2zOqBELf-IYzv9fricC26CdgC3oTEwEhG3lrVdNSWU9VIDC4ydsez9m7kflDmnddH8NZf4cSss9UPwpU1q516WBbhoRQjHZRqX9MfGzlefJKTBqQsBdTN_CCGvNldZ7hMB2vQNVmftl9iC26vL_X50tIhSCHFfESbjzfIgWaxMB4Wp6NiCh9jU2upI7JVElaY2zKKB4xL2nsmLL3e715cjwkkQCwTUnChpbGU9Zya30zayQ2fq9ryqTKDQ"/>
+<div class="absolute bottom-0 right-0 bg-tdm-green text-white rounded-full p-1 border-2 border-white shadow-sm flex items-center">
+<span class="material-symbols-outlined text-[12px] fill-icon">equalizer</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h2 class="font-bold text-lg text-slate-900 truncate">إذاعة موريتانيا</h2>
+<span class="text-xs font-bold text-tdm-green bg-tdm-green/10 px-2 py-0.5 rounded-full">مباشر الآن</span>
+</div>
+<p class="text-sm font-bold text-tdm-green mb-0.5">النشرة الإخبارية الرئيسية</p>
+<p class="text-xs text-slate-400 truncate">موجز أنباء الساعة العاشرة صباحاً</p>
+</div>
+<button class="text-tdm-green">
+<span class="material-symbols-outlined text-3xl fill-icon">pause_circle</span>
+</button>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-accent-border flex items-center gap-4 hover:bg-slate-50 transition-colors">
+<div class="w-20 h-20 shrink-0">
+<img alt="Radio Logo" class="w-full h-full object-cover rounded-full border border-accent-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0grNYB9_Q1ikJVyCWfYBmKDgTC5ZN8R5q8slfeU1DdQwIrqrH2irLGb_m1CZF8-QoS4HGOY6AFB2zPanjo4PUMx7jnv-M4CbUdF0VkpINzUd8kyq7yF-e_P5dVQyQHDmhngOVkwg3vjeE-G9F6U_7pP6my90rsk8yEfLQugirMq6-KdnhIaYE6OoUkWTqEIbHfTF4HjTTeZ_r6cnZXvSYXYJfM6JywO7DcYKB_Z9-f1thMYsgO5F7qFcd7L9C22rcRghun7rl89Q"/>
+</div>
+<div class="flex-1 min-w-0">
+<h2 class="font-bold text-lg text-slate-900 mb-1">إذاعة الساحل</h2>
+<p class="text-sm text-slate-500 mb-0.5">أنغام الصحراء</p>
+<p class="text-xs text-slate-400">تراث وموسيقى شعبية</p>
+</div>
+<button class="text-slate-300">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+</button>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-accent-border flex items-center gap-4">
+<div class="w-20 h-20 shrink-0">
+<img alt="Radio Logo" class="w-full h-full object-cover rounded-full border border-accent-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZErqSfTQUUMk207zRj31djl0IvNlDStAcaLh6Q6IAtCoGPECIH_BNe6W_wo4D25wmUPGUrPah--5iqpnSCA7Mk-aqLW_zFF18bHeTEVA9ExUITiGiU6Cu6KA9GHRftmc9gX_EDS_gs_-rtJSlsclxAPn0JGOy_T4cvSf0L7NSzD55WfZOsUD-7E9GFUjRYVcvY8k0t9me8DfCeuFZ43pwKqcmqoU15V6D3Xma5F2TcVmCzoXeN9tLuJHy0XC4J887BYibwHKcJS4"/>
+</div>
+<div class="flex-1 min-w-0">
+<h2 class="font-bold text-lg text-slate-900 mb-1">إذاعة الشباب</h2>
+<p class="text-sm text-slate-500 mb-0.5">تواصل الشباب</p>
+<p class="text-xs text-slate-400">التكنولوجيا وفرص العمل</p>
+</div>
+<button class="text-slate-300">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+</button>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-accent-border flex items-center gap-4">
+<div class="w-20 h-20 shrink-0">
+<img alt="Radio Logo" class="w-full h-full object-cover rounded-full border border-accent-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4SeaSQMUkyqrlpIgHwe-RhqysiiXUIt3jQW84GBdquTiU68B_sqphBKTVYArK1J7gGmdpoVfVIq-fdyYpFnz8mb1L8_PRoUvw_ZUN_cSg2_WpHAGdqkZM4a7pkFKDHWCaUCmqCnZJaUCN4ZrbI9tJ1KpvTJXy1b2xhGFb7BX3kCfj7McX-Grd7jVGo434SdxOXtLcRaAgtyd3TTKFyBQYyFYP7d9z2GwWKu05IKU2cPUBfSis6AxlXZsCptLnmFeugo1dAja1cAw"/>
+</div>
+<div class="flex-1 min-w-0">
+<h2 class="font-bold text-lg text-slate-900 mb-1">إذاعة القرآن الكريم</h2>
+<p class="text-sm text-slate-500 mb-0.5">تلاوات خاشعة</p>
+<p class="text-xs text-slate-400">القارئ: الشيخ السديس</p>
+</div>
+<button class="text-slate-300">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+</button>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-accent-border flex items-center gap-4">
+<div class="w-20 h-20 shrink-0">
+<img alt="Radio Logo" class="w-full h-full object-cover rounded-full border border-accent-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmW5oIVKaigxToyJS5wO5g_HiWryNfPePxxciRjuhyby22XNcvYw5nodW49VIOrQ6vVyg2yqoaF6EyklRJoXHRJaP3AdTpoRazFMonvVVFivLQAhqW084oMk--XS1uL2PSuNPi1VseMPDEZDumHMs09wr2kdqGIfJ_AZC6NBRUtwPlMG9c2_PTVDs65xvoES4V_x3-fgDbd0AaMKrzaMciR3vU70GfsON7E0Pq8KTgTR4kwS4yiXxxK7Rd2d6xnpzPCZkQx0KLzWQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<h2 class="font-bold text-lg text-slate-900 mb-1">نواكشوط FM</h2>
+<p class="text-sm text-slate-500 mb-0.5">حديث العاصمة</p>
+<p class="text-xs text-slate-400">آخر التطورات المحلية</p>
+</div>
+<button class="text-slate-300">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+</button>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-accent-border px-5 pt-3 pb-8 z-50">
+<div class="max-w-md mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3 flex-1 min-w-0">
+<img alt="Playing" class="w-12 h-12 rounded-lg object-cover shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-wZL_d_Y7Mt5j3F7Lj2zOqBELf-IYzv9fricC26CdgC3oTEwEhG3lrVdNSWU9VIDC4ydsez9m7kflDmnddH8NZf4cSss9UPwpU1q516WBbhoRQjHZRqX9MfGzlefJKTBqQsBdTN_CCGvNldZ7hMB2vQNVmftl9iC26vL_X50tIhSCHFfESbjzfIgWaxMB4Wp6NiCh9jU2upI7JVElaY2zKKB4xL2nsmLL3e715cjwkkQCwTUnChpbGU9Zya30zayQ2fq9ryqTKDQ"/>
+<div class="min-w-0">
+<h4 class="font-bold text-[14px] text-slate-900 truncate">إذاعة موريتانيا</h4>
+<p class="text-[12px] text-tdm-green font-medium truncate">النشرة الإخبارية الرئيسية</p>
+</div>
+</div>
+<div class="flex items-center gap-5 mr-4">
+<button class="text-slate-400 hover:text-tdm-green transition-colors">
+<span class="material-symbols-outlined text-[28px]">skip_next</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-tdm-green text-white flex items-center justify-center shadow-lg shadow-tdm-green/20">
+<span class="material-symbols-outlined text-[32px] fill-icon">pause</span>
+</button>
+<button class="text-slate-400 hover:text-tdm-green transition-colors">
+<span class="material-symbols-outlined text-[28px]">skip_previous</span>
+</button>
+</div>
+</div>
+<div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-200 rounded-full"></div>
+</div>
+
+</body></html>

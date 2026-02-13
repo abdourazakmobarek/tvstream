@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>الصفحة الرئيسية - TDM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-green": "#00a95c",
+                        "gold": "#ffce00",
+                        "mauritania-red": "#d21034",
+                        "background": "#ffffff",
+                        "surface": "#f8f9fa",
+                    },
+                    fontFamily: {
+                        "sans": ["Cairo", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-green: #00a95c;
+            --gold: #ffce00;
+            --mauritania-red: #d21034;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Cairo', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-slate-800 min-h-screen pb-24">
+<div class="h-10 w-full bg-white sticky top-0 z-50 flex items-center justify-between px-6">
+<span class="text-sm font-bold">9:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<header class="px-6 py-4 flex flex-col items-center gap-4">
+<div class="w-24 h-24 relative flex items-center justify-center">
+<div class="flex flex-col items-center scale-110">
+<div class="flex items-center gap-1 mb-[-4px]">
+<span class="text-mauritania-red font-black text-3xl italic">T</span>
+<span class="text-primary-green font-black text-3xl italic">D</span>
+<span class="text-gold font-black text-3xl italic">M</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold text-primary-green leading-none">البث الإذاعي</span>
+<span class="text-[10px] font-bold text-primary-green leading-none">والتلفزيوني الموريتاني</span>
+</div>
+</div>
+</div>
+<div class="w-full relative mt-2">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-surface border-none rounded-2xl py-3.5 pr-12 pl-4 text-sm focus:ring-2 focus:ring-primary-green/20 placeholder:text-slate-400" placeholder="ابحث عن قناة أو إذاعة..." type="text"/>
+</div>
+</header>
+<section class="px-6 mt-6 grid grid-cols-2 gap-4">
+<button class="bg-white border-2 border-slate-50 shadow-sm rounded-3xl p-6 flex flex-col items-center gap-3 transition-transform active:scale-95">
+<div class="w-16 h-16 rounded-2xl bg-primary-green/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-green text-4xl">tv</span>
+</div>
+<span class="font-bold text-lg">البث التلفزيوني</span>
+</button>
+<button class="bg-white border-2 border-slate-50 shadow-sm rounded-3xl p-6 flex flex-col items-center gap-3 transition-transform active:scale-95">
+<div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-gold text-4xl">radio</span>
+</div>
+<span class="font-bold text-lg">البث الإذاعي</span>
+</button>
+</section>
+<section class="mt-10">
+<div class="flex items-center justify-between px-6 mb-4">
+<h3 class="text-xl font-bold">القنوات المميزة</h3>
+<button class="text-primary-green text-sm font-bold">عرض الكل</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-4 px-6">
+<div class="min-w-[140px] flex flex-col gap-2">
+<div class="aspect-square bg-surface rounded-3xl overflow-hidden border border-slate-100 flex items-center justify-center p-4">
+<img alt="Channel" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhG9hYkGAktkycfM0KvD42pAVT5e6YdPfhfKXva23dLGxvgj7npG_d9ebcG8gxWKjDEoyTff9P24isXYis0C2E1n-5s5XNEzmtjlPenQamNzaRNFtrpYNTJysgW13QnEbRnfYw3CUfxDlKkCA3nSfOmb7JP-A1ArfiwwZ34fRwIuYaE6HHPAdM8Ke70fFfhnzFMw2Md1CD07a_1WKfhMx_BZJ6OjkoTN2-czcFFO8E_Wf0Q2K7pmxSuNoe3W8JcjhSabECLEfN2VI"/>
+</div>
+<span class="text-sm font-bold text-center">الموريتانية الأولى</span>
+</div>
+<div class="min-w-[140px] flex flex-col gap-2">
+<div class="aspect-square bg-surface rounded-3xl overflow-hidden border border-slate-100 flex items-center justify-center p-4">
+<img alt="Channel" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEwa_o40ZvouM9pLp0mAXCdPCWk-gBHpWXo7Y9Sq3Fh1Ts_7vtt_lVYc1PinDrp9eN0Ykbg89ri60T0g-VLvOFUPZE3j88SUzE8aED90LCVHSdKrGaLfteUOo-wLSNAqSsLNXWrtl4skvMp5WxUyanu8BPV9A8vv1kmywdSWhR1EVGMdDkGv-HDJx6wponDhZZ4uX2Nq8NaSNYR8UTccwUArCp9vX9S2A0GLAFzOjFant4RwJpMOxiuEiIY1mFWpk9RYGc9PSO3g0"/>
+</div>
+<span class="text-sm font-bold text-center">قناة الساحل</span>
+</div>
+<div class="min-w-[140px] flex flex-col gap-2">
+<div class="aspect-square bg-surface rounded-3xl overflow-hidden border border-slate-100 flex items-center justify-center p-4">
+<img alt="Channel" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhoGROaVDbBInH8hL9QGi78Qjn65y8gAO3yELsb6uUogieCyOLPPkUAScnmppFTlD0E_ndVGjh_0go3u68v_xPlpKD9M3egtIuVoTgj0iHlKhKJRT53iT1VFOl2L1mOHDw1SEN5ZcD8o74pIX5wVdPwBjUtGxVhXcV59bImK5_HFHOwSHdjRaVEmdwxuosgqI7HJQa6xzFf73585Zq6afvhWe4mUA-QFSGkgjhVxj5aW3B8amxcjR5mjAALIZOiRtO2YIa80DsZuU"/>
+</div>
+<span class="text-sm font-bold text-center">قناة شنقيط</span>
+</div>
+<div class="min-w-[140px] flex flex-col gap-2">
+<div class="aspect-square bg-surface rounded-3xl overflow-hidden border border-slate-100 flex items-center justify-center p-4">
+<img alt="Channel" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx8rMLusYId7_FgSNIjL4LxxqO22nhs3Ph7AB35JXP1xg_CXcWcx-0TtdcvGIO3Ni-wZ--lTiG_qxsnP4C61TYeEmW-kyUCEl-YtW-6keO3CtBiYrgWu4K4eSOC2A2kqY0DgtahxaiqNYBjKCuybnr3iFcBuVaYoab3fo0HJjJ51dK6hz8choDBEzl3iqF2fhfralPJY0JlFLZwsTat3RsA66tggfKTdL9nzrWieof_Qs0zKX86qIHInw1D5T8sOe1TSQCLVniE0k"/>
+</div>
+<span class="text-sm font-bold text-center">المرابطون</span>
+</div>
+</div>
+</section>
+<section class="mt-10 mb-8 px-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xl font-bold">أحدث الأخبار</h3>
+<button class="text-primary-green text-sm font-bold">المزيد</button>
+</div>
+<div class="space-y-4">
+<div class="bg-surface p-4 rounded-2xl flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="News" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOAtJyLkPuSL3UWfZKt8AcA8aO_S4BFxW7Oo0XQQpWrE-g7CF8CojDr7PIxM2U7HsPFJO99gAqBtMyXmEPgcXvun-ZWuzQr4gdCYV8r-loqn5c4KCBAldAyzr-6R4eTMOS8Wu4vNka_N1Sn-u3JngV9FgOdSknvzmZV6VHtL7J0CyUk0_oOkFOmixMUYd6De3NMNfF_RZi-HXVeMtpdamMnnL1T1oxoDPOWRACUhvHUEVDFUTR63hl7bbNKDTpsdG2RUJHtZEXbwE"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<span class="text-[10px] font-bold text-mauritania-red bg-mauritania-red/10 px-2 py-0.5 rounded w-fit">عاجل</span>
+<h4 class="text-sm font-bold leading-snug">تغطية خاصة لمستجدات الساحة الوطنية الليلة</h4>
+<span class="text-xs text-slate-400">قبل ٢٠ دقيقة</span>
+</div>
+</div>
+<div class="bg-surface p-4 rounded-2xl flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="News" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWYUd3V9jRSjPG_NNTimSYccCH-_u63Ps0P70szTqfdKkslXpTOW6NsmajV1Stqc7jYOowW072-1DboF8NGVsUdwbnoUbgfOLiBp1ztkecWOE9lCrtV7oWFDnHxG5xH94up49nMQh4FC_6GXXbTrSf3kR2o7H18jmcjEs-6EKC82GKtriRVLDcp-6lqs8U8v5qqVdbFXAylLYI05zS2klhh1sGEVpV4sA9M4nYYJj7uIfitQ5hPFnPFrrLepZxh2B0f1-y8J7qfJ8"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<span class="text-[10px] font-bold text-primary-green bg-primary-green/10 px-2 py-0.5 rounded w-fit">رياضة</span>
+<h4 class="text-sm font-bold leading-snug">المنتخب الوطني يستعد للمباراة القادمة بحماس</h4>
+<span class="text-xs text-slate-400">قبل ساعة</span>
+</div>
+</div>
+</div>
+</section>
+<nav class="fixed bottom-0 left-0 right-0 h-24 bg-white/80 backdrop-blur-xl border-t border-slate-100 px-10 flex items-center justify-between z-50 pb-4">
+<button class="flex flex-col items-center gap-1 text-primary-green">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[11px] font-bold">الرئيسية</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">explore</span>
+<span class="text-[11px] font-medium">اكتشف</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">live_tv</span>
+<span class="text-[11px] font-medium">البث المباشر</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+<span class="text-[11px] font-medium">المفضلة</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[11px] font-medium">حسابي</span>
+</button>
+</nav>
+
+</body></html>

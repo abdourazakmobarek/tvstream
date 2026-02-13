@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مشغل البث المباشر - الموريتانية</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tdm-green": "#009640",
+                        "tdm-yellow": "#FFD100",
+                        "tdm-red": "#ED1C24",
+                        "background-light": "#FFFFFF",
+                        "background-soft": "#F8F9FA",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Sans Arabic", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .video-aspect {
+            aspect-ratio: 16 / 9;
+        }
+        .glass-player {
+            backdrop-filter: blur(8px);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-soft text-slate-900 font-display">
+<div class="max-w-md mx-auto min-h-screen flex flex-col relative overflow-hidden bg-background-light">
+<section class="relative w-full video-aspect bg-black overflow-hidden sticky top-0 z-50">
+<img alt="Live broadcast" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDopePrp1OGNsEAoejY37ZTpz2ftJMjUSxtVRjgoWstUyc2ZLFZambP5yOZL4RTsBpTJ1CmXpyxZ9kM4lh-rAbyZql7YzugA_39vACxkBmxOlnZQB8XGT1VTl019cEF4P1aoB0nkw8XWmZr7Jkh3MjwVCwJIydk8IxeHI6GZL_lTJQB4fJgmmSkyAvnpSA_XwwfGy9PsKaymOx2iQ-aQ-6fkI7GIx8JLUE26gvjwJ7C8eOFlok3Xid7UfkVTn6BsrHAX2BWYf-tMAk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 flex flex-col justify-between p-4">
+<div class="flex items-center justify-between">
+<button class="w-10 h-10 rounded-full glass-player flex items-center justify-center text-white">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+<div class="flex gap-2">
+<div class="glass-player px-3 py-1 rounded-full flex items-center gap-1.5 border border-white/10">
+<span class="w-2 h-2 rounded-full bg-tdm-red animate-pulse"></span>
+<span class="text-xs font-bold text-white uppercase tracking-wider">مباشر</span>
+</div>
+<div class="glass-player px-3 py-1 rounded-full flex items-center gap-1.5 border border-white/10">
+<span class="material-symbols-outlined text-sm text-white">visibility</span>
+<span class="text-xs font-medium text-white tracking-wider">12.4K</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center">
+<button class="w-14 h-14 rounded-full glass-player flex items-center justify-center text-white border border-white/20">
+<span class="material-symbols-outlined text-4xl fill-icon">pause</span>
+</button>
+</div>
+<div class="space-y-3">
+<div class="w-full h-1 bg-white/30 rounded-full overflow-hidden">
+<div class="h-full bg-tdm-red w-full"></div>
+</div>
+<div class="flex items-center justify-between text-white">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-xl">volume_up</span>
+<span class="text-xs font-medium tracking-tight">عالية الجودة 1080p</span>
+</div>
+<span class="material-symbols-outlined text-xl">fullscreen</span>
+</div>
+</div>
+</div>
+</section>
+<main class="flex-1 px-4 py-6 space-y-6 bg-white">
+<div class="space-y-4">
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-3">
+<div class="w-14 h-14 rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-center p-1 overflow-hidden shrink-0">
+<img alt="Channel Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClEMXsyPJdrS5uKhorlTenC9MxY9Y4Xyj2SKftwp4H5P4ETRq082lMTs-WjQGwXgxOrfOEvDRyLkM2lfB64WXj8AD1HWajxNqF1xmQQirt_SQzoK7w2BxziWIAaclgJX0DCahw7H-r-m0GSCnN5CT1zwepln-Y11uPkNZzOl_JaAoVagaLjVXEc7yhzhlfAy1PBCIcg-ty3H7Idyss66XA-zGtJzPO87-6IuD9qmGC5SHnvQDwRhmqfECSFaDSHCGt-i7pLoUx8FM"/>
+</div>
+<div class="space-y-1">
+<h2 class="text-xl font-bold leading-tight text-slate-900">الموريتانية HD</h2>
+<p class="text-tdm-green font-semibold text-sm">نشرة الأخبار الرئيسية</p>
+</div>
+</div>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed">
+                    تغطية شاملة لآخر التطورات المحلية، العلاقات الدولية، والمستجدات الاقتصادية في جميع أنحاء الجمهورية الإسلامية الموريتانية.
+                </p>
+<div class="flex items-center gap-3 pt-2">
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-tdm-green text-white font-bold text-sm shadow-md">
+<span class="material-symbols-outlined text-lg fill-icon">favorite</span>
+                        المفضلة
+                    </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-tdm-yellow text-slate-900 font-bold text-sm shadow-sm">
+<span class="material-symbols-outlined text-lg">share</span>
+                        مشاركة
+                    </button>
+<button class="w-12 flex items-center justify-center py-2.5 rounded-lg bg-slate-100 text-tdm-red">
+<span class="material-symbols-outlined text-lg">report_problem</span>
+</button>
+</div>
+</div>
+<hr class="border-slate-100"/>
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-slate-900">البرامج التالية</h3>
+<span class="text-xs font-bold text-slate-400">اليوم</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-3 rounded-xl bg-slate-50 border border-slate-100">
+<div class="text-center w-12 shrink-0 border-l border-slate-200">
+<p class="text-sm font-bold text-slate-900">20:30</p>
+<p class="text-[10px] text-slate-500 font-bold">مساًء</p>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900">وثائقي: قلب الصحراء</p>
+<p class="text-xs text-slate-500">ثقافة وتاريخ • 45 دقيقة</p>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-xl bg-slate-50 border border-slate-100">
+<div class="text-center w-12 shrink-0 border-l border-slate-200">
+<p class="text-sm font-bold text-slate-900">21:15</p>
+<p class="text-[10px] text-slate-500 font-bold">مساًء</p>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900">الملاعب الليلة</p>
+<p class="text-xs text-slate-500">أبرز مباريات الدوري المحلي • 60 دقيقة</p>
+</div>
+<button class="text-tdm-green">
+<span class="material-symbols-outlined fill-icon">notifications</span>
+</button>
+</div>
+</div>
+</section>
+<section class="space-y-4 pb-8">
+<h3 class="text-lg font-bold text-slate-900">قنوات ذات صلة</h3>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar -mx-4 px-4">
+<div class="shrink-0 w-32 space-y-2">
+<div class="aspect-video rounded-lg bg-slate-200 relative overflow-hidden ring-1 ring-slate-100 group">
+<img alt="El Mouritaniya 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg0GoEobtzWTQHF6uKWRub8psr10NnQU4gRZvcspCBIk2D3d4ZAsWdWX4AMlgcbt_S_fEPC_mR4uUKwDj0tNEZdAYq6SmwZaZxJT4QMaWuFLYVPF2lC-HdME4TqxxHcyXX4ShVRCHeItAlr84gGPLrMgkSfnGk8FSqDPrcyirxj91EEB_DWB-yVFLPIX_QiYXcl8PgN79C-7oLHqW2GZWS-l6_rrNd_IgWUgE6B54HmSaHWdHOfw8UfPbronJO3ZLdOiZ0OWoz2pY"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center p-2">
+<span class="text-white text-[10px] font-bold text-center">الموريتانية 2</span>
+</div>
+</div>
+<p class="text-xs font-bold text-center text-slate-700">الموريتانية الثانية</p>
+</div>
+<div class="shrink-0 w-32 space-y-2">
+<div class="aspect-video rounded-lg bg-slate-200 relative overflow-hidden ring-1 ring-slate-100 group">
+<img alt="Radio Mauritanie" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmxWR3gMNSIW8qbBWBx5tCzNUll5RtxA-9MKAF3XutSPRrboDQX4JGTw27Xc9OJ9JOqFoMFld1dDwa2WjmjoD8Z-bTUWWkn1_fREjEM92daz9EI32DXUlN8wAsIDrD6rCfrng-qI2Ih4lzBl4Qo4RBafICrrxdiHoV1oXgpbD7_7FYQelVYCu5vW-xFDyA9pHOPw7Dki6EJ2HfGCFlOmpYK54IEJnGYibVLlqaiUKVONmaRWqJby5yWUxQYSWKssFSfDZTaEF45n0"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center p-2">
+<span class="text-white text-[10px] font-bold text-center">إذاعة موريتانيا</span>
+</div>
+</div>
+<p class="text-xs font-bold text-center text-slate-700">الإذاعة الوطنية</p>
+</div>
+<div class="shrink-0 w-32 space-y-2">
+<div class="aspect-video rounded-lg bg-slate-200 relative overflow-hidden ring-1 ring-slate-100 group">
+<img alt="Sahel TV" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFrw-sDMqn3JqaGf2RiTen_PsX0NHHPwEpWKw-Bh9XyIioeBNq_QCutRVfa5H6Dn_wM0I9Q1jJrJ5OxXtNH_1vv37lJB6no9Pk5_hBmS8aBsq2vw1fDPRBJbRLhPJU1LmqtZ-XljLS4zMTFOPZLEPLDpyKmtLC3r33UE-DzGFffuFOSAldlQdcj1Oty2L7o-TrW5M_9FCeVyU-TZSEV9xL6sfLmoswFs1tBbKOvMQmdvR5woQO1tFhSC-iNQhWIwkIfsYWVN2ZRxo"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center p-2">
+<span class="text-white text-[10px] font-bold text-center">قناة الساحل</span>
+</div>
+</div>
+<p class="text-xs font-bold text-center text-slate-700">قناة الساحل</p>
+</div>
+</div>
+</section>
+</main>
+<nav class="sticky bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 px-6 py-3 flex justify-between items-center pb-8 shadow-[0_-1px_10px_rgba(0,0,0,0.02)]">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">الرئيسية</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-tdm-green">
+<span class="material-symbols-outlined fill-icon">live_tv</span>
+<span class="text-[10px] font-bold">البث المباشر</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">radio</span>
+<span class="text-[10px] font-bold">الإذاعة</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-bold">الجدول</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">حسابي</span>
+</button>
+</nav>
+<div class="h-1.5 w-32 bg-slate-200 rounded-full absolute bottom-2 left-1/2 -translate-x-1/2"></div>
+</div>
+
+</body></html>

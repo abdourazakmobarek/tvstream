@@ -103,7 +103,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Mauritania TV'**
+  /// **'Mauritanian Broadcasting'**
   String get appTitle;
 
   /// No description provided for @homeTab.
@@ -213,6 +213,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Radio'**
   String get radio;
+
+  /// No description provided for @tvBroadcasting.
+  ///
+  /// In en, this message translates to:
+  /// **'TV Broadcasting'**
+  String get tvBroadcasting;
+
+  /// No description provided for @radioBroadcasting.
+  ///
+  /// In en, this message translates to:
+  /// **'Radio Broadcasting'**
+  String get radioBroadcasting;
+
+  /// No description provided for @featuredChannels.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured Channels'**
+  String get featuredChannels;
+
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View All'**
+  String get viewAll;
+
+  /// No description provided for @latestNews.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest News'**
+  String get latestNews;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
+
+  /// No description provided for @nextPrograms.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Programs'**
+  String get nextPrograms;
+
+  /// No description provided for @relatedChannels.
+  ///
+  /// In en, this message translates to:
+  /// **'Related Channels'**
+  String get relatedChannels;
+
+  /// No description provided for @urgent.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent'**
+  String get urgent;
+
+  /// No description provided for @sport.
+  ///
+  /// In en, this message translates to:
+  /// **'Sport'**
+  String get sport;
+
+  /// No description provided for @searchPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for a channel or radio...'**
+  String get searchPlaceholder;
+
+  /// No description provided for @liveLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'LIVE'**
+  String get liveLabel;
+
+  /// No description provided for @mauritanianRadio.
+  ///
+  /// In en, this message translates to:
+  /// **'Mauritanian Radios'**
+  String get mauritanianRadio;
+
+  /// No description provided for @news.
+  ///
+  /// In en, this message translates to:
+  /// **'News'**
+  String get news;
+
+  /// No description provided for @religious.
+  ///
+  /// In en, this message translates to:
+  /// **'Religious'**
+  String get religious;
+
+  /// No description provided for @culture.
+  ///
+  /// In en, this message translates to:
+  /// **'Culture'**
+  String get culture;
+
+  /// No description provided for @radioSlogan.
+  ///
+  /// In en, this message translates to:
+  /// **'Desert Melodies'**
+  String get radioSlogan;
 }
 
 class _AppLocalizationsDelegate

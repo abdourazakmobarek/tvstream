@@ -2,95 +2,120 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Vibrant Mauritanian Palette
-  static const Color primaryGreen = Color(0xFF00A95C); // Vivid Green
-  static const Color deepGreen = Color(0xFF004D2C);    // Darker Green for gradient
-  static const Color accentGold = Color(0xFFFFD700);   // Bright Gold
-  static const Color midnightBlue = Color(0xFF0F172A); // Rich Blue/Black for contrast
+  // New Mauritanian Palette from Stitch Designs
+  static const Color primaryGreen = Color(0xFF00A95C);
+  static const Color accentGold = Color(0xFFFFCE00);
+  static const Color mauritaniaRed = Color(0xFFD21034);
+  static const Color background = Color(0xFFFFFFFF);
+  static const Color surface = Color(0xFFF8F9FA);
+  static const Color textMain = Color(0xFF1E293B); // Slate 800-ish
+  static const Color textSecondary = Color(0xFF64748B); // Slate 500-ish
   
-  static const Color glassSurface = Color(0x25FFFFFF); // Increased opacity for glass
+  // Added colors from errors
+  static const Color midnightBlue = Color(0xFF0F172A);
+  static const Color deepGreen = Color(0xFF004D40);
+  static const Color glassSurface = Color(0x1FFFFFFF);
 
-  // Gradient Background
-  static const LinearGradient mainGradient = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [
-      deepGreen,
-      midnightBlue,
-    ],
-  );
-
-  static ThemeData get darkTheme {
+  static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       primaryColor: primaryGreen,
-      canvasColor: Colors.transparent, // Important for glass effects
-      scaffoldBackgroundColor: midnightBlue, // Fallback
+      scaffoldBackgroundColor: background,
       colorScheme: ColorScheme.fromSeed(
         seedColor: primaryGreen,
+        primary: primaryGreen,
         secondary: accentGold,
-        onSurface: Colors.white,
-        brightness: Brightness.dark,
-        surfaceContainerHighest: Colors.white.withValues(alpha: 0.05),
+        error: mauritaniaRed,
+        surface: surface,
+        onSurface: textMain,
       ),
-      textTheme: GoogleFonts.cairoTextTheme(ThemeData.dark().textTheme).copyWith(
+      textTheme: GoogleFonts.cairoTextTheme().copyWith(
+        headlineLarge: GoogleFonts.cairo(
+          fontSize: 32,
+          fontWeight: FontWeight.w800,
+          color: textMain,
+        ),
         headlineSmall: GoogleFonts.cairo(
-          fontSize: 24,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: textMain,
+        ),
+        titleLarge: GoogleFonts.cairo(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: textMain,
         ),
         titleMedium: GoogleFonts.cairo(
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: Colors.white.withValues(alpha: 0.9),
+          color: textMain,
+        ),
+        bodyLarge: GoogleFonts.cairo(
+          fontSize: 16,
+          color: textMain,
+        ),
+        bodyMedium: GoogleFonts.cairo(
+          fontSize: 14,
+          color: textMain,
+        ),
+        labelSmall: GoogleFonts.cairo(
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
+          color: textSecondary,
         ),
       ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: background,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.white),
-        titleTextStyle: TextStyle(
-          color: accentGold, // Gold title
-          fontWeight: FontWeight.bold, 
-          fontSize: 22, 
-          letterSpacing: 1.2,
-          shadows: [
-            Shadow(color: Colors.black, blurRadius: 10, offset: Offset(0, 2)),
-          ],
+        scrolledUnderElevation: 0,
+        iconTheme: const IconThemeData(color: textMain),
+        titleTextStyle: GoogleFonts.cairo(
+          color: textMain,
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
         ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: surface,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide.none,
+        ),
+        hintStyle: GoogleFonts.cairo(
+          color: textSecondary,
+          fontSize: 14,
+        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: Colors.transparent,
-        indicatorColor: primaryGreen.withValues(alpha: 0.2),
-        labelTextStyle: WidgetStateProperty.all(
-          const TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white70),
-        ),
+        backgroundColor: background.withValues(alpha: 0.8),
+        indicatorColor: primaryGreen.withValues(alpha: 0.1),
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return GoogleFonts.cairo(
+              fontSize: 11,
+              fontWeight: FontWeight.bold,
+              color: primaryGreen,
+            );
+          }
+          return GoogleFonts.cairo(
+            fontSize: 11,
+            fontWeight: FontWeight.w500,
+            color: textSecondary,
+          );
+        }),
         iconTheme: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return const IconThemeData(color: accentGold);
+            return const IconThemeData(color: primaryGreen, size: 24);
           }
-          return const IconThemeData(color: Colors.white60);
+          return const IconThemeData(color: textSecondary, size: 24);
         }),
       ),
     );
   }
 
-  static ThemeData get lightTheme => darkTheme; // Enforce this new premium look for now
-
-  // Enhanced Glass Decoration
-  static BoxDecoration get glassDecoration => BoxDecoration(
-    color: glassSurface,
-    borderRadius: BorderRadius.circular(20), // More rounded
-    border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withValues(alpha: 0.2),
-        blurRadius: 15,
-        spreadRadius: 2,
-        offset: const Offset(0, 4),
-      )
-    ],
-  );
+  static ThemeData get darkTheme => lightTheme; // For now, focus on the new light design
 }

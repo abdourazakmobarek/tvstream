@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Mauritania TV';
+  String get appTitle => 'Mauritanian Broadcasting';
 
   @override
   String get homeTab => 'Home';
@@ -64,4 +64,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get radio => 'Radio';
+
+  @override
+  String get tvBroadcasting => 'TV Broadcasting';
+
+  @override
+  String get radioBroadcasting => 'Radio Broadcasting';
+
+  @override
+  String get featuredChannels => 'Featured Channels';
+
+  @override
+  String get viewAll => 'View All';
+
+  @override
+  String get latestNews => 'Latest News';
+
+  @override
+  String get more => 'More';
+
+  @override
+  String get share => 'Share';
+
+  @override
+  String get nextPrograms => 'Next Programs';
+
+  @override
+  String get relatedChannels => 'Related Channels';
+
+  @override
+  String get urgent => 'Urgent';
+
+  @override
+  String get sport => 'Sport';
+
+  @override
+  String get searchPlaceholder => 'Search for a channel or radio...';
+
+  @override
+  String get liveLabel => 'LIVE';
+
+  @override
+  String get mauritanianRadio => 'Mauritanian Radios';
+
+  @override
+  String get news => 'News';
+
+  @override
+  String get religious => 'Religious';
+
+  @override
+  String get culture => 'Culture';
+
+  @override
+  String get radioSlogan => 'Desert Melodies';
 }

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tvstream/l10n/app_localizations.dart';
 import 'home/home_screen.dart';
 import 'settings/settings_screen.dart';
@@ -20,8 +21,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
-  final List<Widget> _screens = [
-    const HomeScreen(),
+  List<Widget> get _screens => [
+    HomeScreen(onRadioTab: () => setState(() => _currentIndex = 1)),
     const RadioScreen(), 
     const FavoritesScreen(),
     const SettingsScreen(),
@@ -29,87 +30,82 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      extendBody: true,
-      backgroundColor: Colors.transparent,
-      body: GradientBackground(
-        child: Stack(
-          children: [
-            // Main Content
-            IndexedStack(
-              index: _currentIndex,
-              children: _screens,
-            ),
-            
-            // Custom Lightweight Floating Nav Bar
-            Positioned(
-              left: 15,
-              right: 15,
-              bottom: 40,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(40),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Container(
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: AppTheme.glassSurface,
-                      borderRadius: BorderRadius.circular(40),
-                      border: Border.all(
-                        color: Colors.white.withValues(alpha: 0.1),
+      backgroundColor: AppTheme.background,
+      body: Stack(
+        children: [
+          // Main Content
+          IndexedStack(
+            index: _currentIndex,
+            children: _screens,
+          ),
+          
+          // New Modern Bottom Nav Bar
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ClipRRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                child: Container(
+                  height: 90, // Taller for bottom safe area
+                  width: double.infinity,
+                  constraints: const BoxConstraints(maxWidth: 600), // Limit width on tablets
+                  padding: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.8),
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.grey.withValues(alpha: 0.1),
                         width: 1,
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.2),
-                          blurRadius: 15,
-                          offset: const Offset(0, 5),
-                        ),
-                      ],
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        _buildNavItem(Icons.tv, Icons.tv_outlined, 0),
-                        _buildNavItem(Icons.radio, Icons.radio_outlined, 1),
-                        _buildNavItem(Icons.favorite, Icons.favorite_border, 2),
-                        _buildNavItem(Icons.settings, Icons.settings_outlined, 3),
-                      ],
-                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buildNavItem(Icons.home_rounded, Icons.home_outlined, 0, l10n.homeTab),
+                      _buildNavItem(Icons.radio_rounded, Icons.radio_outlined, 1, l10n.radioTab),
+                      _buildNavItem(Icons.favorite_rounded, Icons.favorite_outline_rounded, 2, l10n.favoritesTab),
+                      _buildNavItem(Icons.settings_rounded, Icons.settings_outlined, 3, l10n.settingsTab),
+                    ],
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildNavItem(IconData selectedIcon, IconData unselectedIcon, int index) {
+  Widget _buildNavItem(IconData selectedIcon, IconData unselectedIcon, int index, String label) {
     final isSelected = _currentIndex == index;
-    return GestureDetector(
+    final color = isSelected ? AppTheme.primaryGreen : AppTheme.textSecondary;
+
+    return InkWell(
       onTap: () => setState(() => _currentIndex = index),
-      behavior: HitTestBehavior.opaque,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.all(12),
-        decoration: isSelected 
-          ? BoxDecoration(
-              color: AppTheme.accentGold.withValues(alpha: 0.15),
-              shape: BoxShape.circle,
-            )
-          : const BoxDecoration(
-              shape: BoxShape.circle,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            isSelected ? selectedIcon : unselectedIcon,
+            color: color,
+            size: 26,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: GoogleFonts.cairo(
+              fontSize: 11,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+              color: color,
             ),
-        child: Icon(
-          isSelected ? selectedIcon : unselectedIcon,
-          color: isSelected ? AppTheme.accentGold : Colors.white.withValues(alpha: 0.6),
-          size: 26,
-        ),
+          ),
+        ],
       ),
     );
   }
