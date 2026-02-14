@@ -146,7 +146,7 @@ class RadioStationCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  l10n.radioSlogan,
+                  station.slogan ?? l10n.radioSlogan,
                   style: GoogleFonts.cairo(
                     color: AppTheme.textSecondary,
                     fontSize: 13,

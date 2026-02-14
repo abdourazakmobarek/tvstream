@@ -5,6 +5,7 @@ class Channel {
   final String logoUrl;
   final String streamUrl;
   final String category;
+  final String? slogan;
 
   const Channel({
     required this.id,
@@ -13,6 +14,7 @@ class Channel {
     required this.logoUrl,
     required this.streamUrl,
     required this.category,
+    this.slogan,
   });
 
   factory Channel.fromJson(Map<String, dynamic> json) {
@@ -23,6 +25,7 @@ class Channel {
       logoUrl: json['logoUrl'] as String,
       streamUrl: json['streamUrl'] as String,
       category: json['category'] as String,
+      slogan: json['slogan'] as String?,
     );
   }
 
@@ -34,6 +37,7 @@ class Channel {
       'logoUrl': logoUrl,
       'streamUrl': streamUrl,
       'category': category,
+      'slogan': slogan,
     };
   }
 }

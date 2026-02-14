@@ -176,7 +176,7 @@ class GalleryChannelCard extends StatelessWidget {
                             style: GoogleFonts.cairo(fontWeight: FontWeight.bold, fontSize: 15),
                           ),
                           Text(
-                            'مباشر الآن',
+                            'البث الحي',
                             style: GoogleFonts.cairo(color: AppTheme.textSecondary, fontSize: 11),
                           ),
                         ],

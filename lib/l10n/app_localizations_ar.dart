@@ -78,7 +78,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get viewAll => 'عرض الكل';
 
   @override
-  String get latestNews => 'أحدث الأخبار';
+  String get featuredRadio => 'الإذاعات المميزة';
 
   @override
   String get more => 'المزيد';

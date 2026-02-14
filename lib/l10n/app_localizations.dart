@@ -238,11 +238,11 @@ abstract class AppLocalizations {
   /// **'View All'**
   String get viewAll;
 
-  /// No description provided for @latestNews.
+  /// No description provided for @featuredRadio.
   ///
   /// In en, this message translates to:
-  /// **'Latest News'**
-  String get latestNews;
+  /// **'Featured Radio Stations'**
+  String get featuredRadio;
 
   /// No description provided for @more.
   ///

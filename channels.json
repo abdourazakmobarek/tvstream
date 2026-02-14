@@ -101,7 +101,8 @@
         "nameAr": "إذاعة موريتانيا",
         "logoUrl": "assets/images/radio.png",
         "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-        "category": "Radio"
+        "category": "Radio",
+        "slogan": "الأكثر انتشارا والأقرب إليك"
     },
     {
         "id": "r2",
@@ -109,7 +110,8 @@
         "nameAr": "إذاعة القرآن الكريم",
         "logoUrl": "assets/images/mahdara_tv.png",
         "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-        "category": "Radio"
+        "category": "Radio",
+        "slogan": "قرآن يتلى وسنة تبلغ"
     },
     {
         "id": "r3",
@@ -117,7 +119,8 @@
         "nameAr": "إذاعة الشباب",
         "logoUrl": "assets/images/radio-geunesse.png",
         "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-        "category": "Radio"
+        "category": "Radio",
+        "slogan": "أنغام الصحراء وقضايا الشباب"
     },
     {
         "id": "r4",
@@ -125,6 +128,7 @@
         "nameAr": "الإذاعة الثقافية",
         "logoUrl": "assets/images/radio-culturelle.png",
         "streamUrl": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-        "category": "Radio"
+        "category": "Radio",
+        "slogan": "شنقيط أرض المنارة والرباط"
     }
 ]

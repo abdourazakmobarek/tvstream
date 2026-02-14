@@ -78,7 +78,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get viewAll => 'Voir tout';
 
   @override
-  String get latestNews => 'Dernières nouvelles';
+  String get featuredRadio => 'Radios en vedette';
 
   @override
   String get more => 'Plus';

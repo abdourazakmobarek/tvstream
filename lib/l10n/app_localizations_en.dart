@@ -78,7 +78,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get viewAll => 'View All';
 
   @override
-  String get latestNews => 'Latest News';
+  String get featuredRadio => 'Featured Radio Stations';
 
   @override
   String get more => 'More';
