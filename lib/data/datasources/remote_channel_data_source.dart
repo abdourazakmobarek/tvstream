@@ -1,45 +1,65 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'channel_data_source.dart';
+import 'asset_channel_data_source.dart';
 import '../models/channel.dart';
 
-/// مصدر بيانات عن بُعد لجلب القنوات من ملف JSON
+/// مصدر بيانات عن بُعد مع fallback محلي
+/// يحاول جلب البيانات من الشبكة أولاً، وعند الفشل يستخدم ملف channels.json المحلي
 class RemoteChannelDataSource implements ChannelDataSource {
   final http.Client client;
-  
-  // رابط ملف القنوات (سأقوم بإنشاء ملف مثال لك لرفعه)
-  final String _dataUrl = 'https://raw.githubusercontent.com/abdourazakmobarek/tvstream/main/channels.json';
+  final AssetChannelDataSource _assetFallback = AssetChannelDataSource();
+
+  final String _dataUrl =
+      'https://raw.githubusercontent.com/abdourazakmobarek/tvstream/main/channels.json';
 
   RemoteChannelDataSource({required this.client});
 
+  List<Channel>? _cachedChannels;
+
   Future<List<Channel>> _fetchAllChannels() async {
+    // إذا كانت البيانات مخزنة مؤقتًا، أعدها مباشرة
+    if (_cachedChannels != null) return _cachedChannels!;
+
     try {
-      final response = await client.get(Uri.parse(_dataUrl));
+      final response = await client
+          .get(Uri.parse(_dataUrl))
+          .timeout(const Duration(seconds: 8));
 
       if (response.statusCode == 200) {
-        // فك تشفير البيانات باستخدام UTF-8 لدعم اللغة العربية
         final String decodedBody = utf8.decode(response.bodyBytes);
         final List<dynamic> jsonList = json.decode(decodedBody);
-        return jsonList.map((json) => Channel.fromJson(json)).toList();
+        _cachedChannels =
+            jsonList.map((json) => Channel.fromJson(json)).toList();
+        return _cachedChannels!;
       } else {
-        throw Exception('Failed to load channels: ${response.statusCode}');
+        // فشل الاستجابة من الخادم، استخدم البيانات المحلية
+        return _loadFromAssetFallback();
       }
     } catch (e) {
-      throw Exception('Network Error: $e');
+      // أي خطأ (شبكة، timeout، parsing...) -> استخدم البيانات المحلية
+      return _loadFromAssetFallback();
     }
+  }
+
+  Future<List<Channel>> _loadFromAssetFallback() async {
+    final channels = await _assetFallback.getChannels();
+    final radio = await _assetFallback.getRadioChannels();
+    _cachedChannels = [...channels, ...radio];
+    return _cachedChannels!;
   }
 
   @override
   Future<List<Channel>> getChannels() async {
     final all = await _fetchAllChannels();
-    // تصفية القنوات التلفزيونية (Public + Private)
-    return all.where((c) => c.category == 'Public' || c.category == 'Private').toList();
+    return all
+        .where((c) => c.category == 'Public' || c.category == 'Private')
+        .toList();
   }
 
   @override
   Future<List<Channel>> getRadioChannels() async {
     final all = await _fetchAllChannels();
-    // تصفية المحطات الإذاعية
     return all.where((c) => c.category == 'Radio').toList();
   }
 

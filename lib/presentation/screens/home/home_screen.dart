@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:tvstream/l10n/app_localizations.dart';
+import 'dart:ui';
 
 import '../../../logic/channels_cubit.dart';
 import '../../../data/models/channel.dart';
@@ -30,7 +32,7 @@ class HomeScreen extends StatelessWidget {
 
         if (state is ChannelsLoaded) {
           return Scaffold(
-            backgroundColor: AppTheme.background,
+            backgroundColor: Colors.transparent, // Let gradient show through
             body: RefreshIndicator(
               onRefresh: () async {
                 await context.read<ChannelsCubit>().refreshChannels();
@@ -66,7 +68,45 @@ class HomeScreen extends StatelessWidget {
           );
         }
 
-        return const Scaffold(body: Center(child: Text('حدث خطأ')));
+        // حالة الخطأ مع إمكانية إعادة المحاولة
+        final errorMsg = state is ChannelsError ? state.message : '';
+        return Scaffold(
+          backgroundColor: AppTheme.background,
+          body: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(32),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.wifi_off_rounded, size: 64, color: Colors.grey.shade400),
+                  const SizedBox(height: 16),
+                  Text(
+                    'تعذر تحميل المحتوى',
+                    style: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    errorMsg.isNotEmpty ? errorMsg : 'تحقق من اتصالك بالإنترنت وأعد المحاولة',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.cairo(fontSize: 13, color: AppTheme.textSecondary),
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton.icon(
+                    onPressed: () => context.read<ChannelsCubit>().refreshChannels(),
+                    icon: const Icon(Icons.refresh_rounded),
+                    label: Text('إعادة المحاولة', style: GoogleFonts.cairo(fontWeight: FontWeight.bold)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppTheme.primaryGreen,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 12),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
       },
     );
   }
@@ -86,18 +126,14 @@ class DashboardHeader extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 18),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [Color(0xFFF7FAF9), Colors.white],
-              ),
+              color: Colors.white.withValues(alpha: 0.3), // Glassmorphic
               borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: AppTheme.surface, width: 1.2),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.5), width: 1.5),
               boxShadow: [
                 BoxShadow(
-                  color: AppTheme.primaryGreen.withValues(alpha: 0.08),
-                  blurRadius: 16,
-                  offset: const Offset(0, 6),
+                  color: AppTheme.primaryGreen.withValues(alpha: 0.05),
+                  blurRadius: 20,
+                  offset: const Offset(0, 8),
                 ),
               ],
             ),
@@ -127,27 +163,31 @@ class DashboardHeader extends StatelessWidget {
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => const SearchScreen()));
             },
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(18),
-                border: Border.all(color: AppTheme.surface, width: 1.5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.04),
-                    blurRadius: 10,
-                    offset: const Offset(0, 4),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(18),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.5),
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(color: Colors.white.withValues(alpha: 0.7), width: 1.5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.02),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
                   ),
-                ],
-              ),
               child: Row(
                 children: [
                   Container(
                     width: 34,
                     height: 34,
                     decoration: BoxDecoration(
-                      color: AppTheme.surface,
+                      color: Colors.white.withValues(alpha: 0.6),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Icon(Icons.search, color: AppTheme.textSecondary, size: 20),
@@ -163,6 +203,8 @@ class DashboardHeader extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+          ),
             ),
           ),
         ],
@@ -288,18 +330,29 @@ class FeaturedChannels extends StatelessWidget {
               final isTablet = constraints.maxWidth > 600;
               final cardWidth = isTablet ? 186.0 : 146.0;
               
-              return ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                scrollDirection: Axis.horizontal,
-                itemCount: channels.length,
-                itemBuilder: (context, index) {
-                  final channel = channels[index];
-                  return Container(
-                    width: cardWidth,
-                    margin: const EdgeInsets.symmetric(horizontal: 8),
-                    child: ChannelCard(channel: channel),
-                  );
-                },
+              return AnimationLimiter(
+                child: ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: channels.length,
+                  itemBuilder: (context, index) {
+                    final channel = channels[index];
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 500),
+                      child: SlideAnimation(
+                        horizontalOffset: 50.0,
+                        child: FadeInAnimation(
+                          child: Container(
+                            width: cardWidth,
+                            margin: const EdgeInsets.symmetric(horizontal: 8),
+                            child: ChannelCard(channel: channel),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
               );
             },
           ),
@@ -353,20 +406,24 @@ class FeaturedRadioSection extends StatelessWidget {
                   );
                 },
                 borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  padding: const EdgeInsets.all(14),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: AppTheme.surface, width: 1.5),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.04),
-                        blurRadius: 10,
-                        offset: const Offset(0, 4),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    child: Container(
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.4),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.white.withValues(alpha: 0.6), width: 1.5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.02),
+                            blurRadius: 10,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
                   child: Row(
                     children: [
                       // Radio logo
@@ -437,6 +494,8 @@ class FeaturedRadioSection extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+              ),
                 ),
               ),
             );

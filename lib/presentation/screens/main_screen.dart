@@ -8,8 +8,8 @@ import 'settings/settings_screen.dart';
 import 'favorites/favorites_screen.dart';
 import 'radio/radio_screen.dart';
 
-import '../widgets/gradient_background.dart';
 import '../../core/app_theme.dart';
+import '../widgets/animated_gradient_background.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -32,50 +32,63 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
-    return Scaffold(
-      backgroundColor: AppTheme.background,
-      body: Stack(
-        children: [
-          // Main Content
-          IndexedStack(
-            index: _currentIndex,
-            children: _screens,
-          ),
-          
-          // New Modern Bottom Nav Bar
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: ClipRRect(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-                child: Container(
-                  height: 90, // Taller for bottom safe area
-                  width: double.infinity,
-                  constraints: const BoxConstraints(maxWidth: 600), // Limit width on tablets
-                  padding: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.8),
-                    border: Border(
-                      top: BorderSide(
-                        color: Colors.grey.withValues(alpha: 0.1),
-                        width: 1,
+    return AnimatedGradientBackground(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        extendBody: true, // Let screens flow under the bottom nav bar
+        body: Stack(
+          children: [
+            // Main Content
+            IndexedStack(
+              index: _currentIndex,
+              children: _screens,
+            ),
+            
+            // New Floating Glassmorphic Bottom Nav Bar
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 24, left: 24, right: 24), // Float above edge
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(32), // Pill shape
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+                    child: Container(
+                      height: 75, // Slimmer profile
+                      width: double.infinity,
+                      constraints: const BoxConstraints(maxWidth: 500), // Limit width on tablets
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.65), // More translucent
+                        borderRadius: BorderRadius.circular(32),
+                        border: Border.all(
+                          color: Colors.white.withValues(alpha: 0.5),
+                          width: 1.5,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.05),
+                            blurRadius: 20,
+                            offset: const Offset(0, 10),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          _buildNavItem(Icons.home_rounded, Icons.home_outlined, 0, l10n.homeTab),
+                          _buildNavItem(Icons.radio_rounded, Icons.radio_outlined, 1, l10n.radioTab),
+                          _buildNavItem(Icons.favorite_rounded, Icons.favorite_outline_rounded, 2, l10n.favoritesTab),
+                          _buildNavItem(Icons.settings_rounded, Icons.settings_outlined, 3, l10n.settingsTab),
+                        ],
                       ),
                     ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _buildNavItem(Icons.home_rounded, Icons.home_outlined, 0, l10n.homeTab),
-                      _buildNavItem(Icons.radio_rounded, Icons.radio_outlined, 1, l10n.radioTab),
-                      _buildNavItem(Icons.favorite_rounded, Icons.favorite_outline_rounded, 2, l10n.favoritesTab),
-                      _buildNavItem(Icons.settings_rounded, Icons.settings_outlined, 3, l10n.settingsTab),
-                    ],
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

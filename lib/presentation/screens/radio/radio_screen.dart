@@ -4,11 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:tvstream/l10n/app_localizations.dart';
+import 'dart:ui';
+import '../../widgets/bouncing_wrapper.dart';
 
 import '../../../logic/channels_cubit.dart';
 import '../../../data/models/channel.dart';
 import '../../../core/app_theme.dart';
-import '../player/player_screen.dart';
 
 class RadioScreen extends StatefulWidget {
   const RadioScreen({super.key});
@@ -25,7 +26,7 @@ class _RadioScreenState extends State<RadioScreen> {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: AppTheme.background,
+      backgroundColor: Colors.transparent, // Allow gradient from MainScreen
       appBar: AppBar(
         title: Text(
           l10n.mauritanianRadio,
@@ -63,13 +64,24 @@ class _RadioScreenState extends State<RadioScreen> {
                 ),
                 // Radio Stations List
                 Expanded(
-                  child: ListView.builder(
-                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 100),
-                    itemCount: radioStations.length,
-                    itemBuilder: (context, index) {
-                      final station = radioStations[index];
-                      return RadioStationCard(station: station);
-                    },
+                  child: AnimationLimiter(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.fromLTRB(24, 0, 24, 100),
+                      itemCount: radioStations.length,
+                      itemBuilder: (context, index) {
+                        final station = radioStations[index];
+                        return AnimationConfiguration.staggeredList(
+                          position: index,
+                          duration: const Duration(milliseconds: 500),
+                          child: SlideAnimation(
+                            verticalOffset: 50.0,
+                            child: FadeInAnimation(
+                              child: RadioStationCard(station: station),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ],
@@ -112,14 +124,30 @@ class RadioStationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    return Container(
-      margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: AppTheme.surface, width: 2),
-      ),
+    return BouncingWrapper(
+      onTap: () {
+        // We will need to define a tap action later if desired, or let the Play button handle it.
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 16),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(24),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.4), // Glass effect
+                borderRadius: BorderRadius.circular(24),
+                border: Border.all(color: Colors.white.withValues(alpha: 0.6), width: 1.5),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.02),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
       child: Row(
         children: [
           // Play Button
@@ -171,6 +199,10 @@ class RadioStationCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+            ),
+          ),
+        ),
       ),
     );
   }

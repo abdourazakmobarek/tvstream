@@ -348,15 +348,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   ],
                 ),
                 const SizedBox(height: 32),
-                // 3. Next Programs Schedule
-                Text(
-                  l10n?.nextPrograms ?? 'البرامج التالية',
-                  style: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 16),
-                _buildScheduleItem('20:30', 'مساًء', 'وثائقي: قلب الصحراء', 'ثقافة وتاريخ • 45 دقيقة'),
-                const Divider(height: 32),
-                _buildScheduleItem('21:15', 'مساًء', 'الملاعب الليلة', 'أبرز مباريات الدوري المحلي • 60 دقيقة'),
+                // 3. Channel Information
+                _buildChannelInfoSection(),
                 const SizedBox(height: 32),
                 // 4. Related Channels (Mocked)
                 Text(
@@ -429,26 +422,65 @@ class _PlayerScreenState extends State<PlayerScreen> {
     );
   }
 
-  Widget _buildScheduleItem(String time, String period, String title, String subtitle) {
-    return Row(
-      children: [
-        Column(
-          children: [
-            Text(time, style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.bold)),
-            Text(period, style: GoogleFonts.cairo(fontSize: 11, color: AppTheme.textSecondary)),
-          ],
-        ),
-        const SizedBox(width: 20),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildChannelInfoSection() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppTheme.surface,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppTheme.primaryGreen.withValues(alpha: 0.2)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              Text(title, style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.bold)),
-              Text(subtitle, style: GoogleFonts.cairo(fontSize: 11, color: AppTheme.textSecondary)),
+              Icon(Icons.satellite_alt_rounded, color: AppTheme.primaryGreen, size: 22),
+              const SizedBox(width: 8),
+              Text(
+                'معلومات القناة',
+                style: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
             ],
           ),
+          const SizedBox(height: 16),
+          _buildChannelInfoRow(Icons.satellite_rounded, 'القمر الصناعي', widget.channel.satellite ?? '-'),
+          const Divider(height: 24),
+          _buildChannelInfoRow(Icons.cell_tower_rounded, 'التردد', '${widget.channel.frequency ?? '-'} MHz'),
+          const Divider(height: 24),
+          _buildChannelInfoRow(Icons.swap_vert_rounded, 'الاستقطاب', widget.channel.polarization == 'V' ? 'عمودي (V)' : 'أفقي (H)'),
+          const Divider(height: 24),
+          _buildChannelInfoRow(Icons.speed_rounded, 'معدل الترميز', '${widget.channel.symbolRate ?? '-'} Ks/s'),
+          const Divider(height: 24),
+          _buildChannelInfoRow(Icons.tune_rounded, 'معامل التصحيح (FEC)', widget.channel.fec ?? '-'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildChannelInfoRow(IconData icon, String label, String value) {
+    return Row(
+      children: [
+        Container(
+          width: 36,
+          height: 36,
+          decoration: BoxDecoration(
+            color: AppTheme.primaryGreen.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Icon(icon, color: AppTheme.primaryGreen, size: 18),
         ),
-        Icon(Icons.notifications_none_rounded, color: AppTheme.textSecondary.withValues(alpha: 0.5)),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            label,
+            style: GoogleFonts.cairo(fontSize: 13, color: AppTheme.textSecondary),
+          ),
+        ),
+        Text(
+          value,
+          style: GoogleFonts.cairo(fontSize: 14, fontWeight: FontWeight.bold),
+        ),
       ],
     );
   }

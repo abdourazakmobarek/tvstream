@@ -21,7 +21,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.light,
       primaryColor: primaryGreen,
-      scaffoldBackgroundColor: background,
+      scaffoldBackgroundColor: Colors.transparent, // Allow animated background to show
       colorScheme: ColorScheme.fromSeed(
         seedColor: primaryGreen,
         primary: primaryGreen,
